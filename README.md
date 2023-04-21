@@ -9,11 +9,11 @@ authentication.  This does the job, and is based on https://docs.gemini.com/rest
 <!-- GETTING STARTED -->
 ## Getting Started
 
-1. ```git clone https://github.com/ulysseskan/geminitransfers.git```
-2. ```cd geminitransfers```
-3. Edit `GEMINI_API_KEY`, `GEMINI_API_SECRET`, which you can obtain from
+1. ```git clone https://github.com/ulysseskan/geminitransfers.git && cd geminitransfers```
+2. ```mv config.py.sample config.py```
+3. Within `config.py`, edit `GEMINI_API_KEY`, `GEMINI_API_SECRET`, which you can obtain from
    https://exchange.gemini.com/settings/api The key needs read-only auditor permissions and time based nonces.
-4. ```python3 geminitransfers.py```
+4. ```python3 ./geminitransfers.py```
 
 ### Prerequisites
 
@@ -23,8 +23,6 @@ You need a copy of Python 3.  I only tested with Python 3.10.  One way to instal
 2. ```brew install python3```
 3. Ensure Brew's executable bin directory is in your PATH variable, for example:<br>
 ```echo "eval \$($(brew --prefix)/bin/brew shellenv)" >>~/.profile```
-4. Rename `config.py.sample` to `config.py` and put your API key and secret in that file
-5. Run `python3 geminitransfers.py
 
 ## Potential improvements
 
