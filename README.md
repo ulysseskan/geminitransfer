@@ -23,13 +23,13 @@ You need a copy of Python 3.  I only tested with Python 3.10.  One way to instal
 2. ```brew install python3```
 3. Ensure Brew's executable bin directory is in your PATH variable, for example:<br>
 ```echo "eval \$($(brew --prefix)/bin/brew shellenv)" >>~/.profile```
+4. Rename `config.py.sample` to `config.py` and put your API key and secret in that file
+5. Run `python3 geminitransfers.py
 
 ## Potential improvements
 
-- [ ] Sensitive information such as the Gemini API key and secret should be loaded from environment
-variables instead of being hardcoded.
-- [ ] SSL certificate verification should be enabled by setting verify=True in the requests.post()
-method, and the hashlib module should be used to encode the API secret properly.
+- [ ] SSL certificate verification could be enabled by setting verify=True in the requests.post()
+method, and the hashlib module could be used to encode the API secret properly.
 - [ ] Don't use time-based nonces.
 
 ## Limitations

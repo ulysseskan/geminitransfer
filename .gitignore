@@ -1,0 +1,12 @@
+geminitransfers.py
+config.py
+old/background.js
+old/config.json
+old/index.html
+old/manifest.json
+old/minimal_gemini_test_node.mjs
+old/minimal-javascript-console-testcase.js
+old/popup.html
+old/popup.js
+__pycache__/config.cpython-310.pyc
+.DS_Store
