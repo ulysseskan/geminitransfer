@@ -11,7 +11,7 @@ authentication.  This does the job, and is based on https://docs.gemini.com/rest
 
 1. ```git clone https://github.com/ulysseskan/geminitransfers.git && cd geminitransfers```
 2. ```mv config.py.sample config.py```
-3. Within `config.py`, edit `GEMINI_API_KEY`, `GEMINI_API_SECRET`, which you can obtain from
+3. Within `config.py`, edit `GEMINI_API_KEY` and `GEMINI_API_SECRET`, which you can obtain from
    https://exchange.gemini.com/settings/api The key needs read-only auditor permissions and time based nonces.
 4. ```python3 ./geminitransfers.py```
 
