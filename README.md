@@ -1,19 +1,20 @@
-<!-- ABOUT THE PROJECT -->
 ## tl;dr
-Pretty prints a list of your last ~8 months of Gemini crypto transfers.
+Displays a list of your last ~8 months of Gemini crypto transfers on the command line.
+If the currency is BAT, includes the current USD value of that BAT transfer.
 
 ## About
 I wanted a quick way of retrieving my latest transfers from the command line, without fiddling with
-authentication.  This does the job, and is based on https://docs.gemini.com/rest-api/#transfers
+Gemini's web site or manual authentication.  This does the job, and is based on https://docs.gemini.com/rest-api/#transfers
 
-<!-- GETTING STARTED -->
+<img width="680" alt="geminixferscreenshot" src="https://user-images.githubusercontent.com/71786368/232181687-764958ce-763c-4e7e-814c-dbdbe282bb50.png">
+
 ## Getting Started
 
-1. ```git clone https://github.com/ulysseskan/geminitransfers.git && cd geminitransfers```
-2. ```mv config.py.sample config.py```
-3. Within `config.py`, edit `GEMINI_API_KEY` and `GEMINI_API_SECRET`, which you can obtain from
+1. ```git clone https://github.com/ulysseskan/geminitransfers.git```
+2. ```cd geminitransfers```
+3. Within geminitransfers.py, edit `GEMINI_API_KEY`, `GEMINI_API_SECRET`, which you can obtain from
    https://exchange.gemini.com/settings/api The key needs read-only auditor permissions and time based nonces.
-4. ```python3 ./geminitransfers.py```
+4. ```python3 geminitransfers.py```
 
 ### Prerequisites
 
@@ -23,6 +24,8 @@ You need a copy of Python 3.  I only tested with Python 3.10.  One way to instal
 2. ```brew install python3```
 3. Ensure Brew's executable bin directory is in your PATH variable, for example:<br>
 ```echo "eval \$($(brew --prefix)/bin/brew shellenv)" >>~/.profile```
+4. Rename `config.py.sample` to `config.py` and put your API key and secret in that file
+5. Run `python3 ./geminitransfers.py
 
 ## Potential improvements
 
@@ -35,7 +38,6 @@ method, and the hashlib module could be used to encode the API secret properly.
 The transfers API request path has an undocumented limitation: it can only retrieve the last 8 or so
 months of data.
 
-<!-- LICENSE -->
 ## License
 
-Distributed under the MIT License. See `LICENSE.txt` for more information.
+Distributed under the MIT License. See `LICENSE` for more information.
