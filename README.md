@@ -1,12 +1,12 @@
 ## tl;dr
 Displays a list of your last ~8 months of Gemini crypto transfers on the command line.
-If the currency is BAT, includes the current USD value of that BAT transfer.
+Also displays your current total trading portfolio.
 
 ## About
 I wanted a quick way of retrieving my latest transfers from the command line, without fiddling with
 Gemini's web site or manual authentication.  This does the job, and is based on https://docs.gemini.com/rest-api/#transfers
 
-<img width="680" alt="geminixferscreenshot" src="https://user-images.githubusercontent.com/71786368/232181687-764958ce-763c-4e7e-814c-dbdbe282bb50.png">
+<img width="860" alt="geminixferscreenshot" src="https://user-images.githubusercontent.com/71786368/233815717-8177d8b8-174c-45ea-8cdd-8fcbc1de1f81.png">
 
 ## Getting Started
 
