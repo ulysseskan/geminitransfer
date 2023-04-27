@@ -47,7 +47,7 @@ else:
     my_transfers = response_json
 
     # Specify headers for tabulate
-    headers = ['type', 'timestamp', 'USDvalue', 'currency', 'amount', 'source']
+    headers = ['type', 'timestamp', 'currency', 'amount', 'source']
 
     # Create a list to hold the data for the table
     table_data = []
@@ -57,16 +57,15 @@ else:
                     (transfer['timestampms'] / 1000).strftime('%Y-%m-%d %H:%M')
 
         if transfer['currency'] == 'BAT':
-            USD_VALUE = f"${float(transfer['amount']) * bat_usd_price:.2f}"
+            USD_VALUE = float(transfer['amount']) * bat_usd_price
         else:
             USD_VALUE = None  # For other currencies, set the USD value to None
 
         transfer_data = [
             transfer['type'],
             timestamp,
-            USD_VALUE,
             transfer['currency'],
-            transfer['amount'],
+            f"{float(transfer['amount']):.2f} ({USD_VALUE:.2f} USD)",
             transfer['source']
         ]
 
@@ -75,7 +74,7 @@ else:
     print("\nLast ~8 Months of Transactions: \n")
     print(tabulate(table_data, headers=headers))
 
-# Get trading balances
+# Fetch trading balances
 payload_balances = {"request": "/v1/balances", "nonce": payload_nonce + 1}
 encoded_payload_balances = json.dumps(payload_balances).encode()
 b64_balances = base64.b64encode(encoded_payload_balances)
@@ -93,28 +92,16 @@ request_headers_balances = {
 balances_response = requests.post(BALANCES_URL, headers=request_headers_balances, timeout=10)
 balances_json = balances_response.json()
 
-# Process balances and add columns
-balances_table = []
-TOTAL_PORTFOLIO = 0
-
+# Cap BAT amount at 2 decimal places and add USD value in parentheses
 for balance in balances_json:
-    asset = balance['currency']
-    amount = float(balance['amount'])
-    PRICE = 0
-    if asset == 'BAT':
-        PRICE = bat_usd_price
-    elif asset == 'USD':
-        PRICE = 1
-    value = amount * PRICE
-    TOTAL_PORTFOLIO += value
-    balances_table.append([asset, PRICE, amount, 0])
+    if balance['currency'] == 'BAT':
+        bat_amount = float(balance['amount'])
+        bat_usd_value = bat_amount * bat_usd_price
+        balance['amount'] = f"{bat_amount:.2f} ({bat_usd_value:.2f} USD)"
+    else:
+        balance['amount'] = f"{float(balance['amount']):.2f}"
 
-# Calculate and update Trading Portfolio %
-for row in balances_table:
-    row[3] = (row[2] * row[1]) / TOTAL_PORTFOLIO * 100
-
+# Print the trading balances using tabulate
 print("\nTotal Trading Balances:\n")
-
-# Print the balances table
-print(tabulate(balances_table, \
-               headers=["Asset", "Price", "Balance", "Trading Portfolio %"], floatfmt=".2f"))
+print(tabulate([[balance['currency'], \
+                 balance['amount']] for balance in balances_json], headers=['currency', 'amount']))
