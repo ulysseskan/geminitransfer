@@ -6,7 +6,7 @@ Also displays your current total trading portfolio.
 I wanted a quick way of retrieving my latest transfers from the command line, without fiddling with
 Gemini's web site or manual authentication.  This does the job, and is based on https://docs.gemini.com/rest-api/#transfers
 
-<img width="1001" alt="geminixferscreenshot" src="https://user-images.githubusercontent.com/71786368/233816054-c308c3fc-ddde-4bfc-86be-183e252f183b.png">
+<img width="977" alt="geminixferscreenshot" src="https://user-images.githubusercontent.com/71786368/235015546-b4ce5e7b-7c58-44fe-93b0-0b03a1211948.png">
 
 ## Getting Started
 
