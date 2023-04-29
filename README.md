@@ -28,8 +28,8 @@ You need a copy of Python 3.  I only tested with Python 3.10.  One way to instal
 ## Potential improvements
 
 - [ ] SSL certificate verification could be enabled by setting verify=True in the requests.post()
-method, and the hashlib module could be used to encode the API secret properly.
-- [ ] Don't use time-based nonces.
+method, and the hashlib module could be used to encode the API secret properly
+- [ ] Don't use time-based nonces
 - [ ] Filter transfers by date range or specific months
 - [ ] Calculate and display total values of each currency in portfolio
 - [ ] Add pagination support to handle large amounts of transfers
