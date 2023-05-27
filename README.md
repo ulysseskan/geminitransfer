@@ -12,7 +12,8 @@ Gemini's web site or manual authentication.  This does the job, and is based on 
 
 1. ```git clone https://github.com/ulysseskan/geminitransfers.git```
 2. ```cd geminitransfers```
-3. Within config.py, edit `GEMINI_API_KEY`, `GEMINI_API_SECRET`, which you can obtain from
+3. ```pip3 install -r requirements.txt```
+4. Within config.py, edit `GEMINI_API_KEY`, `GEMINI_API_SECRET`, obtainable from 
    https://exchange.gemini.com/settings/api The key needs read-only auditor permissions and time based nonces.
 4. ```python3 geminitransfers.py```
 
