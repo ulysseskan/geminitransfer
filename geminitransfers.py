@@ -105,3 +105,6 @@ for balance in balances_json:
 print("\nTotal Trading Balances:\n")
 print(tabulate([[balance['currency'], \
                  balance['amount']] for balance in balances_json], headers=['currency', 'amount']))
+
+# Display the current BATUSD price
+print(f"\nCurrent BAT-USD Price: {bat_usd_price:.5f}")
