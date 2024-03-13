@@ -65,8 +65,9 @@ else:
             transfer['type'],
             timestamp,
             transfer['currency'],
-            f"{float(transfer['amount']):.2f} ({USD_VALUE:.2f} USD)",
-            transfer['source']
+            f"{float(transfer['amount']):.2f} ({USD_VALUE:.2f} USD)" if USD_VALUE is not None else \
+                  "N/A" if transfer['type'] != 'Withdrawal' else float(transfer['amount']),
+            transfer.get('source', 'N/A')
         ]
 
         table_data.append(transfer_data)
